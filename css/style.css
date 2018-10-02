@@ -285,3 +285,18 @@ li.selected {
 .message.own {
     margin-left: 17.5%;
 }
+
+/* 9.1 Buttons barebones */
+button {
+    height: 36px;
+    minimum-width: 64px;
+    font-size: 14px;
+    border-radius: 2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 8px;
+    background: white;
+    border: none;
+    color: #3F51B5;
+    text-transform: uppercase;
+}
