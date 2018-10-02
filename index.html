@@ -44,7 +44,7 @@
         <!-- #8 #remove all #channels -->
         <!-- This document will trigger many warning and errors when using the W3C Validator due to comments in comments, which is not allowed. We let them in here so you can check out the solution for Challenge 7. -->
         <!-- #7  calls our switchChannel with the corresponding OBJECT as an argument -->
-        
+
             <!-- <li onclick="switchChannel(yummy)">
             #Yummy
             <span class="channel-meta"> -->
@@ -89,7 +89,7 @@
                 <i class="fas fa-chevron-right"></i>
             </span>
         </li> -->
-       
+
     </ul>
 
     <!-- TAB BAR -->
@@ -128,21 +128,21 @@
             <h3><a href="http://w3w.co/cheeses.yard.applies" target="_blank"><strong>cheeses.yard.applies</strong></a>
                 Wed, June 20th, 13:37 <em>15 min. left</em></h3>
             <p>What's the place you folks call home?</p>
-            <button>+5 min.</button>
+            <button class="accent">+5 min.</button>
         </div>
 
         <div class="message">
             <h3><a href="http://w3w.co/truck.cotton.zone" target="_blank"><strong>truck.cotton.zone</strong></a>
                 Wed, June 20th, 13:39 <em>4 min. left</em></h3>
             <p>BRISBANE! Hang loose!</p>
-            <button>+5 min.</button>
+            <button class="accent">+5 min.</button>
         </div>
 
         <div class="message">
             <h3><a href="http://w3w.co/thus.best.dishes" target="_blank"><strong>thus.best.dishes</strong></a>
                 Wed, June 20th, 14:02 <em>12 min. left</em></h3>
             <p>The big apple.</p>
-            <button>+5 min.</button>
+            <button class="accent">+5 min.</button>
         </div>
 
         <div class="message">
@@ -150,7 +150,7 @@
                    target="_blank"><strong>driveway.helper.magazine</strong></a>
                 Wed, June 20th, 14:02 <em>7 min. left</em></h3>
             <p>Eu sou um Cariocas.</p>
-            <button>+5 min.</button>
+            <button class="accent">+5 min.</button>
         </div>
 
         <div class="message">
@@ -158,7 +158,7 @@
                    target="_blank"><strong>escapes.pitch.saucepan</strong></a>
                 Wed, June 20th, 14:07 <em>14 min. left</em></h3>
             <p>Greetings from the western cape!</p>
-            <button>+5 min.</button>
+            <button class="accent">+5 min.</button>
         </div>
 
         <div class="message">
@@ -166,14 +166,14 @@
                    target="_blank"><strong>meanings.identity.pays</strong></a>
                 Wed, June 20th, 04:08 <em>15 min. left</em></h3>
             <p>北京</p>
-            <button>+5 min.</button>
+            <button class="accent">+5 min.</button>
         </div>
 
     </div>
 
     <!-- ChAT BAR -->
     <div id="chat-bar">
-        <button id="emojis-button" onclick="toggleEmojis()">
+        <button id="emojis-button" class="primary" onclick="toggleEmojis()">
             <!-- #7 replacing icons -->
             <i class="far fa-smile"></i>
         </button>
@@ -182,7 +182,7 @@
                It also gets an id -->
         <input type="text" placeholder="Message..." maxlength="140" id="message">
         <!-- #8 send message requires a button -->
-        <button onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>
+        <button class="accent" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>
     </div>
 </div>
 

@@ -21,7 +21,7 @@ body {
     background-color: #F5F5F5;
 }
 
-button, strong {
+strong {
     text-transform: uppercase;
 }
 
@@ -161,9 +161,9 @@ li.selected {
 }
 
 #tab-bar button, #chat-bar button {
-    background-color: white;
-    border: none;
-    font-size: 13px;
+    /* background-color: white; */
+    /* border: none; */
+    /* font-size: 13px; */
     width: 33%;
     height: 72px;
     padding: 16px;
@@ -190,7 +190,6 @@ li.selected {
     /* override button styles. We set the chat bar to appear like a tab-bar above. This overrides the tab bar's button scaling */
     width: auto;
     flex-grow: 0;
-
     /* #7 #icns #smile adjust fa size */
     font-size: 24px;
 }
@@ -272,9 +271,9 @@ li.selected {
 
 .message button {
     /* +5 min. button*/
-    background-color: #CDDC39;
-    color: black;
-    text-transform: uppercase;
+    /* background-color: #CDDC39; */
+    /* color: black; */
+    /* text-transform: uppercase; */
 
     /* right/bottom alignment of button */
     position: absolute;
@@ -299,4 +298,14 @@ button {
     border: none;
     color: #3F51B5;
     text-transform: uppercase;
+}
+
+button.primary {
+    background: #3F51B5;
+    color:white;
+}
+
+button.accent {
+    background: #CDDC39;
+    color: black;
 }
