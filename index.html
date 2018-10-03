@@ -32,10 +32,10 @@
 <body onload="listChannels()">
 
 <!-- channel area -->
-<div id="channels">
+<div id="channels" class="md-whiteframe-16dp">
 
     <!-- APP BAR for APP TITLE -->
-    <h1 id="left-app-bar">
+    <h1 id="left-app-bar" class="md-whiteframe-16dp">
         <img src="http://ip.lfe.mw.tum.de/sections/moocus.png" alt="Moocus, the chatty duck!" style="height: 56px;">
         chatter|app
     </h1>
@@ -93,8 +93,10 @@
 
     </ul>
 
+    <button class="circle accent"><i class="fas fa-plus"></i></button>
+
     <!-- TAB BAR -->
-    <div id="tab-bar">
+    <div id="tab-bar" class="md-whiteframe-16dp">
         <button class="selected" id="tab-new" onclick="selectTab('#tab-new')">
             <!-- #7  replacing icons -->
             <i class="far fa-lightbulb"></i>
@@ -116,7 +118,7 @@
 <div id="chat">
 
     <!-- APP BAR for CHANNEL TITLE -->
-    <h1>
+    <h1 class="md-whiteframe-16dp">
         <span id="channel-name">#SevenContinents</span>
         <small id="channel-location">by <strong>cheeses.yard.applies</strong></small>
         <!-- #7 star is now font-awesome -->
@@ -178,7 +180,8 @@
             <!-- #7 replacing icons -->
             <i class="far fa-smile"></i>
         </button>
-        <div id="emojis">&#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
+        <div id="emojis" class="md-whiteframe-16dp">
+          &#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
         <!-- #8 create a new input element which accepts text and has a prefill as well as a character limit.
                It also gets an id -->
         <input type="text" placeholder="Message..." maxlength="140" id="message">
