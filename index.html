@@ -14,7 +14,10 @@
     <!-- embed jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			crossorigin="anonymous"></script>
+	    crossorigin="anonymous"></script>
+
+    <!-- load Kikobeats emojis-list https://github.com/Kikobeats/emojis-list -->
+    <script src="js/emojis-list.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- #7 embed font awesome -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> -->
@@ -93,7 +96,7 @@
 
     </ul>
 
-    <button class="circle accent"><i class="fas fa-plus"></i></button>
+    <button class="circle accent" onclick="channelInput()"><i class="fas fa-plus"></i></button>
 
     <!-- TAB BAR -->
     <div id="tab-bar" class="md-whiteframe-16dp">
@@ -118,59 +121,73 @@
 <div id="chat">
 
     <!-- APP BAR for CHANNEL TITLE -->
-    <h1 class="md-whiteframe-16dp">
+    <h1 id="currentChannel" class="md-whiteframe-16dp">
         <span id="channel-name">#SevenContinents</span>
         <small id="channel-location">by <strong>cheeses.yard.applies</strong></small>
         <!-- #7 star is now font-awesome -->
         <i class="fas fa-star" onclick="star()"></i>
     </h1>
 
+    <!-- APP BAR for INPUT CHANNEL -->
+    <h1 id="inputChannel" class="md-whiteframe-16dp">
+      <!-- #10 input box for channel name -->
+      <input type="text" placeholder="Enter a #ChannelName" maxlength="140" id="inputChannelName">
+      <!-- #10 button for sending-->
+      <button id="inputChanelButton" class="primary" onclick="channelOut()">
+        <!-- <i class="fas fa-times"></i> -->
+        ABORT
+      </button>
+      <!-- <i class="fas fa-times" onclick="channelOut">ABORT</i> -->
+    </h1>
+
     <div id="messages">
 
-        <div class="message own">
-            <h3><a href="http://w3w.co/cheeses.yard.applies" target="_blank"><strong>cheeses.yard.applies</strong></a>
-                Wed, June 20th, 13:37 <em>15 min. left</em></h3>
-            <p>What's the place you folks call home?</p>
-            <button class="accent">+5 min.</button>
-        </div>
+      <!-- #10 coment out static messages -->
 
-        <div class="message">
-            <h3><a href="http://w3w.co/truck.cotton.zone" target="_blank"><strong>truck.cotton.zone</strong></a>
-                Wed, June 20th, 13:39 <em>4 min. left</em></h3>
-            <p>BRISBANE! Hang loose!</p>
-            <button class="accent">+5 min.</button>
-        </div>
+        <!-- <div class="message own"> -->
+        <!--     <h3><a href="http://w3w.co/cheeses.yard.applies" target="_blank"><strong>cheeses.yard.applies</strong></a> -->
+        <!--         Wed, June 20th, 13:37 <em>15 min. left</em></h3> -->
+        <!--     <p>What's the place you folks call home?</p> -->
+        <!--     <button class="accent">+5 min.</button> -->
+        <!-- </div> -->
 
-        <div class="message">
-            <h3><a href="http://w3w.co/thus.best.dishes" target="_blank"><strong>thus.best.dishes</strong></a>
-                Wed, June 20th, 14:02 <em>12 min. left</em></h3>
-            <p>The big apple.</p>
-            <button class="accent">+5 min.</button>
-        </div>
+        <!-- <div class="message"> -->
+        <!--     <h3><a href="http://w3w.co/truck.cotton.zone" target="_blank"><strong>truck.cotton.zone</strong></a> -->
+        <!--         Wed, June 20th, 13:39 <em>4 min. left</em></h3> -->
+        <!--     <p>BRISBANE! Hang loose!</p> -->
+        <!--     <button class="accent">+5 min.</button> -->
+        <!-- </div> -->
 
-        <div class="message">
-            <h3><a href="http://w3w.co/driveway.helper.magazine"
-                   target="_blank"><strong>driveway.helper.magazine</strong></a>
-                Wed, June 20th, 14:02 <em>7 min. left</em></h3>
-            <p>Eu sou um Cariocas.</p>
-            <button class="accent">+5 min.</button>
-        </div>
+        <!-- <div class="message"> -->
+        <!--     <h3><a href="http://w3w.co/thus.best.dishes" target="_blank"><strong>thus.best.dishes</strong></a> -->
+        <!--         Wed, June 20th, 14:02 <em>12 min. left</em></h3> -->
+        <!--     <p>The big apple.</p> -->
+        <!--     <button class="accent">+5 min.</button> -->
+        <!-- </div> -->
 
-        <div class="message">
-            <h3><a href="http://w3w.co/escapes.pitch.saucepan"
-                   target="_blank"><strong>escapes.pitch.saucepan</strong></a>
-                Wed, June 20th, 14:07 <em>14 min. left</em></h3>
-            <p>Greetings from the western cape!</p>
-            <button class="accent">+5 min.</button>
-        </div>
+        <!-- <div class="message"> -->
+        <!--     <h3><a href="http://w3w.co/driveway.helper.magazine" -->
+        <!--            target="_blank"><strong>driveway.helper.magazine</strong></a> -->
+        <!--         Wed, June 20th, 14:02 <em>7 min. left</em></h3> -->
+        <!--     <p>Eu sou um Cariocas.</p> -->
+        <!--     <button class="accent">+5 min.</button> -->
+        <!-- </div> -->
 
-        <div class="message">
-            <h3><a href="http://w3w.co/meanings.identity.pays"
-                   target="_blank"><strong>meanings.identity.pays</strong></a>
-                Wed, June 20th, 04:08 <em>15 min. left</em></h3>
-            <p>北京</p>
-            <button class="accent">+5 min.</button>
-        </div>
+        <!-- <div class="message"> -->
+        <!--     <h3><a href="http://w3w.co/escapes.pitch.saucepan" -->
+        <!--            target="_blank"><strong>escapes.pitch.saucepan</strong></a> -->
+        <!--         Wed, June 20th, 14:07 <em>14 min. left</em></h3> -->
+        <!--     <p>Greetings from the western cape!</p> -->
+        <!--     <button class="accent">+5 min.</button> -->
+        <!-- </div> -->
+
+        <!-- <div class="message"> -->
+        <!--     <h3><a href="http://w3w.co/meanings.identity.pays" -->
+        <!--            target="_blank"><strong>meanings.identity.pays</strong></a> -->
+        <!--         Wed, June 20th, 04:08 <em>15 min. left</em></h3> -->
+        <!--     <p>北京</p> -->
+        <!--     <button class="accent">+5 min.</button> -->
+        <!-- </div> -->
 
     </div>
 
@@ -181,12 +198,14 @@
             <i class="far fa-smile"></i>
         </button>
         <div id="emojis" class="md-whiteframe-16dp">
-          &#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
+          <!-- &#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607; -->
+        </div>
         <!-- #8 create a new input element which accepts text and has a prefill as well as a character limit.
                It also gets an id -->
         <input type="text" placeholder="Message..." maxlength="140" id="message">
         <!-- #8 send message requires a button -->
-        <button class="accent" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>
+        <button id="sendButton" class="accent" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>
+        <button id="createButton" class="accent" onclick="channelOut()">CREATE</button>
     </div>
 </div>
 

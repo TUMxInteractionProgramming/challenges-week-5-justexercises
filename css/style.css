@@ -150,7 +150,6 @@ li.selected {
 }
 
 /* TAB BAR */
-
 #tab-bar, #chat-bar {
     background-color: white;
     text-align: center;
@@ -160,7 +159,13 @@ li.selected {
     display: flex;
 }
 
-#tab-bar button, #chat-bar button {
+#chat-bar{
+    height: 72px;
+    padding-top: 16px;
+}
+
+/* me cargo de aqui #chat-bar button */
+#tab-bar button {
     /* background-color: white; */
     /* border: none; */
     /* font-size: 13px; */
@@ -192,6 +197,7 @@ li.selected {
     flex-grow: 0;
     /* #7 #icns #smile adjust fa size */
     font-size: 24px;
+    /* display: block; */
 }
 
 #emojis {
@@ -345,4 +351,45 @@ button.accent {
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
                 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
                 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+#currentChannel {
+    display: block;
+}
+
+#inputChannel {
+    display: none;
+}
+
+#inputChannel input {
+    position: absolute;
+    font-size: 16px;
+    border: none;
+    width: auto;
+    min-width: 80%;
+    padding: 8px;
+    top: 15px;
+    border-radius: 2px;
+}
+
+
+#inputChannel button{
+    postion: absolute;
+    left: 100px;
+    min-width: 10%;
+    top: 15px;
+    /* padding: 8 px; */
+    margin-left: 89%;
+    margin-top: -25px;
+    font-size: 14px;
+
+}
+
+#chat-bar #sendButton{
+    display: block;
+}
+
+#chat-bar #createButton{
+    display: none;
+    font-size: 14px;
 }

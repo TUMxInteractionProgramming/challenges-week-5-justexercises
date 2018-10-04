@@ -78,12 +78,20 @@ function selectTab(tabId) {
     $(tabId).addClass('selected');
 }
 
+
 /**
  * toggle (show/hide) the emojis menu
  */
 function toggleEmojis() {
     $('#emojis').toggle(); // #toggle
+
+    // # 10 Add emojis from kilobeats.js, 1631 to 1637
+    var emojis = require('emojis-list');
+    var emojisList = emojis.slice(1631, 1637);
+    // console.log(emojisList);
+    $('#emojis').html(emojisList);
 }
+
 
 /**
  * #8 This #constructor function creates a new chat #message.
@@ -112,8 +120,18 @@ function sendMessage() {
     var message = new Message($('#message').val());
     console.log("New message:", message);
 
+    // #10 send message only if not empty
+    var messageText = message.text;
+    if (messageText.length > 0){
     // #8 convenient message append with jQuery:
-    $('#messages').append(createMessageElement(message));
+        $('#messages').append(createMessageElement(message));
+
+        // #10 add message to currentChannel
+        currentChannel.messages.push(createMessageElement(message));
+
+        // #10 increase message count
+        currentChannel.messageCount = currentChannel.messageCount +1 ;
+    }
 
     // #8 messages will scroll to a certain point if we apply a certain height, in this case the overall scrollHeight of the messages-div that increases with every message;
     // it would also scroll to the bottom when using a very high number (e.g. 1000000000);
@@ -229,4 +247,19 @@ function compareTrending(a, b){
 //  starred for favorites
 function compareFav(a, b){
     return (b.starred - a.starred);
+}
+
+function channelInput() {
+    $('#messages div').empty();
+    $('#currentChannel').hide();
+    $('#inputChannel').show();
+    $('#sendButton').hide();
+    $('#createButton').show();
+}
+
+function channelOut() {
+    $('#inputChannel').hide();
+    $('#currentChannel').show();
+    $('#createButton').hide();
+    $('#sendButton').show();
 }
