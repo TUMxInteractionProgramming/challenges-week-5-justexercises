@@ -29,7 +29,7 @@
 </head>
 
 <!-- #8 #channel #onload all channels when the body has loaded -->
-<body onload="listChannels()">
+<body onload="listChannels(compareCreated)">
 
 <!-- channel area -->
 <div id="channels" class="md-whiteframe-16dp">
@@ -97,17 +97,17 @@
 
     <!-- TAB BAR -->
     <div id="tab-bar" class="md-whiteframe-16dp">
-        <button class="selected" id="tab-new" onclick="selectTab('#tab-new')">
+        <button class="selected" id="tab-new" onclick="selectTab('#tab-new'); listChannels(compareCreated)">
             <!-- #7  replacing icons -->
             <i class="far fa-lightbulb"></i>
             New
         </button>
-        <button id="tab-trending" onclick="selectTab('#tab-trending')">
+        <button id="tab-trending" onclick="selectTab('#tab-trending'); listChannels(compareTrending)">
             <!-- #7  replacing icons -->
             <i class="fas fa-fire"></i>
             Trending
         </button>
-        <button id="tab-favorites" onclick="selectTab('#tab-favorites')">
+        <button id="tab-favorites" onclick="selectTab('#tab-favorites'); listChannels(compareFav)">
             <!-- #7  replacing icons -->
             <i class="fas fa-star"></i>
             Favorites

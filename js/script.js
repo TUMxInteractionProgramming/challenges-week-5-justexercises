@@ -16,6 +16,9 @@ var currentLocation = {
     what3words: "shelf.jetted.purple"
 };
 
+/** #10.1 Messages array **/
+var channels = [yummy, sevencontinents, killerapp, firstpersononmars, octoberfest];
+
 /**
  * Switch channels name in the right app bar
  * @param channelObject
@@ -144,17 +147,34 @@ function createMessageElement(messageObject) {
         '</div>';
 }
 
+// criterion var to load listChannels on body by default
+// var criterion = compareCreated;
 
-function listChannels() {
+function listChannels(criterion) {
     // #8 channel onload
     //$('#channels ul').append("<li>New Channel</li>")
 
-    // #8 five new channels
-    $('#channels ul').append(createChannelElement(yummy));
-    $('#channels ul').append(createChannelElement(sevencontinents));
-    $('#channels ul').append(createChannelElement(killerapp));
-    $('#channels ul').append(createChannelElement(firstpersononmars));
-    $('#channels ul').append(createChannelElement(octoberfest));
+    // // #8 five new channels
+    // $('#channels ul').append(createChannelElement(yummy));
+    // $('#channels ul').append(createChannelElement(sevencontinents));
+    // $('#channels ul').append(createChannelElement(killerapp));
+    // $('#channels ul').append(createChannelElement(firstpersononmars));
+    // $('#channels ul').append(createChannelElement(octoberfest));
+
+    // Clear channel list first
+    $('#channels ul').empty();
+
+    // #10 sort channels by criterion
+
+    channels = channels.sort(criterion);
+
+    // #10 use a "for" loop
+
+    // $('#channels ul').empty();
+    for (var i = 0; i < channels.length; i++) {
+        // console.log("add channel", channels[i]);
+        $('#channels ul').append(createChannelElement(channels[i]));
+    }
 }
 
 /**
@@ -192,4 +212,21 @@ function createChannelElement(channelObject) {
 
     // return the complete channel
     return channel;
+}
+
+/** #10 Compare functions for channels */
+
+// createdOn for new
+function compareCreated(a, b){
+    return new Date(b.createdOn) - new Date(a.createdOn);
+}
+
+// messageCount for trending
+function compareTrending(a, b){
+    return (b.messageCount - a.messageCount);
+}
+
+//  starred for favorites
+function compareFav(a, b){
+    return (b.starred - a.starred);
 }
