@@ -366,7 +366,7 @@ button.accent {
     font-size: 16px;
     border: none;
     width: auto;
-    min-width: 80%;
+    min-width: 75%;
     padding: 8px;
     top: 15px;
     border-radius: 2px;
@@ -375,11 +375,11 @@ button.accent {
 
 #inputChannel button{
     postion: absolute;
-    left: 100px;
-    min-width: 10%;
+    /* left: 100px; */
+    /* min-width: 8%; */
     top: 15px;
     /* padding: 8 px; */
-    margin-left: 89%;
+    margin-left: 85%;
     margin-top: -25px;
     font-size: 14px;
 

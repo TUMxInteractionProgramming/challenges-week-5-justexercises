@@ -263,3 +263,35 @@ function channelOut() {
     $('#createButton').hide();
     $('#sendButton').show();
 }
+
+/**
+ * #10 This #constructor function creates a new Channel.
+ * @param channelName `String` a channel name
+ * @constructor
+ */
+function Channel(newChannelName) {
+    // copy my location
+    this.name = newChannelName;
+    this.createdOn = new Date() //now
+    this.createdBy = currentLocation.what3words;
+    this.starred = false;
+    this.messageCount = 0;
+    this.messages = [];
+}
+
+/**
+ * #10 Function to check imputs and create Channel
+ */
+function createChannel(name, text){
+    // get input
+    newChannelName = $('#inputChannelName').val();
+    messageText = $('#message').val();
+    // check if input is ok
+    if (newChannelName.startsWith('#') && messageText.length > 0 && !newChannelName.indexOf(' ') >= 0){
+        var cleanChannelname = newChannelName.substring(1);
+        var cleanChannelname = cleanChannelname.toLowerCase();
+        var channel = new Channel(newChannelName);
+        console.log("valid new channel!");
+        channelOut();
+    }
+}
